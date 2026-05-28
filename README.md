@@ -4,7 +4,7 @@ Version: `0.1.0`
 
 A browser extension for manual encrypted P2P chat between multiple users without a dedicated backend server.
 
-![How Group HandLink Chat works](./docs/screenshots/screenshot-2-how-it-works.png)
+![How Group HandLink Chat works](./docs/screenshots/screenshot-2-how-it-works.jpg)
 
 ## Features
 

@@ -108,8 +108,8 @@ Group HandLink Chat does not collect data for tracking or advertising. Chat data
 Use the prepared screenshots:
 
 ```text
-docs/screenshots/screenshot-1-chat.png
-docs/screenshots/screenshot-2-how-it-works.png
+docs/screenshots/screenshot-1-chat.jpg
+docs/screenshots/screenshot-2-how-it-works.jpg
 ```
 
-Both are `1280 x 800` PNG files without alpha channel.
+Both are `1280 x 800` JPEG files.
