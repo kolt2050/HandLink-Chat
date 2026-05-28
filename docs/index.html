@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Group HandLink Chat</title>
+  <style>
+    :root {
+      color: #102018;
+      background: #f3f8f4;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #edf8f0 0%, #f3f8f4 52%, #f8fbf8 100%);
+    }
+
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    header {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1;
+    }
+
+    p {
+      margin: 0;
+      color: #45634f;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    a {
+      color: #047857;
+      font-weight: 700;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      border-radius: 6px;
+      padding: 0 16px;
+      color: #082013;
+      background: #54d88b;
+      text-decoration: none;
+    }
+
+    section {
+      display: grid;
+      gap: 12px;
+      border-top: 1px solid #cfe4d4;
+      padding-top: 24px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #274733;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Group HandLink Chat</h1>
+      <p>Manual encrypted P2P group chat for Chrome. Create an invite, exchange the answer manually, and chat directly through WebRTC without a project-owned backend server.</p>
+      <div class="actions">
+        <a class="button" href="privacy-policy.html">Privacy Policy</a>
+        <a href="chrome-web-store-submission.md">Chrome Web Store copy</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>What It Does</h2>
+      <ul>
+        <li>Creates encrypted manual WebRTC chat rooms.</li>
+        <li>Supports multiple participants, mentions, images, clickable links, and local history.</li>
+        <li>Stores chat data locally in the browser and exchanges messages only with invited peers.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

@@ -23,6 +23,7 @@ interface RuntimeProfile {
   nickname: string
   chatName: string
   localPeerId: string
+  locale: Locale
 }
 
 interface RuntimeSnapshot {
@@ -588,7 +589,8 @@ function App() {
     const initialProfile = {
       nickname,
       chatName: '',
-      localPeerId
+      localPeerId,
+      locale
     }
     void sendRuntimeCommand({ type: 'snapshot', profile: initialProfile }).then(applyRuntimeSnapshot)
   }, [])
@@ -639,7 +641,8 @@ function App() {
     return {
       nickname: nextNickname,
       chatName: '',
-      localPeerId
+      localPeerId,
+      locale
     }
   }
 

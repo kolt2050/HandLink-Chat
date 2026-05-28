@@ -24,6 +24,23 @@ interface RuntimeProfile {
   nickname: string
   chatName: string
   localPeerId: string
+  locale?: RuntimeLocale
+}
+
+type RuntimeLocale = 'ru' | 'en' | 'fr' | 'de' | 'es-ES' | 'zh-CN' | 'ja' | 'ko' | 'pt-BR' | 'zh-TW' | 'pl'
+
+const systemInvitedTranslations: Record<RuntimeLocale, string> = {
+  en: '{inviter} invited {invitee} to the chat.',
+  ru: '{inviter} пригласил(а) в чат пользователя {invitee}.',
+  fr: '{inviter} a invité {invitee} dans le chat.',
+  de: '{inviter} hat {invitee} in den Chat eingeladen.',
+  'es-ES': '{inviter} invitó a {invitee} al chat.',
+  'zh-CN': '{inviter} 邀请 {invitee} 加入聊天。',
+  ja: '{inviter} が {invitee} をチャットに招待しました。',
+  ko: '{inviter}님이 {invitee}님을 채팅에 초대했습니다.',
+  'pt-BR': '{inviter} convidou {invitee} para o chat.',
+  'zh-TW': '{inviter} 邀請 {invitee} 加入聊天。',
+  pl: '{inviter} zaprosił(a) {invitee} do czatu.'
 }
 
 interface RuntimeSnapshot {
@@ -66,7 +83,8 @@ let mentionBellAudioContext: AudioContext | null = null
 let profile: RuntimeProfile = {
   nickname: localStorage.getItem('p2p-chat:nickname') || '',
   chatName: '',
-  localPeerId: localStorage.getItem('handlink-chat:peerId') || crypto.randomUUID()
+  localPeerId: localStorage.getItem('handlink-chat:peerId') || crypto.randomUUID(),
+  locale: 'en'
 }
 
 localStorage.setItem('handlink-chat:peerId', profile.localPeerId)
@@ -333,12 +351,18 @@ function addSystemInviteMessage(inviteeName: string, nextMailboxKey = mailboxKey
   const systemMessage: ChatMessage = {
     id: crypto.randomUUID(),
     author: 'system',
-    text: `${inviterName} пригласил(а) в чат пользователя ${inviteeName}.`,
+    text: formatSystemInvited(profile.locale ?? 'en', inviterName, inviteeName),
     timestamp: Date.now(),
     direction: 'system'
   }
   mergeChatMessages([systemMessage], nextMailboxKey)
   void chatSession?.sendExisting(systemMessage).catch((error) => appendLog(`Send failed: ${error instanceof Error ? error.message : String(error)}`))
+}
+
+function formatSystemInvited(locale: RuntimeLocale, inviter: string, invitee: string) {
+  return systemInvitedTranslations[locale]
+    .replace('{inviter}', inviter)
+    .replace('{invitee}', invitee)
 }
 
 async function ensureManualSession(chatInvite: string, nextMailboxKey: string) {

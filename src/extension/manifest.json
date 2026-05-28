@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Group HandLink Chat",
-  "version": "0.2.35",
+  "version": "0.1.0",
   "description": "Manual encrypted WebRTC peer-to-peer chat prototype.",
   "minimum_chrome_version": "116",
   "permissions": ["storage", "tabs", "offscreen"],
